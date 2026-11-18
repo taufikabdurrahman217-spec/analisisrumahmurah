@@ -89,9 +89,9 @@
   /* Simulator keuangan: Opsi 1 (kiri) dan Opsi 2 (kanan), rumus mengikuti Excel Pengeluaran Akad */
   const SIM = [
     { c: 'a', title: 'Opsi 1 · Dapur belakang', tag: 'Data real',
-      v: { harga: 215, kons: 57, tamb: 10.8825, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 40 } },
+      v: { harga: 215, kons: 69, tamb: 10.8825, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 40 } },
     { c: 'b', title: 'Opsi 2 · Dapur belakang, ruang tamu luar & kanopi', tag: 'Estimasi kelayakan',
-      v: { harga: 250, kons: 70.5, tamb: 0, fee: 4.719, npop: 60, bphtb: 5, pph: 2.5, bn: 3, peneb: 83, unit: 40 } }
+      v: { harga: 250, kons: 80, tamb: 23, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 40 } }
   ];
   const FLD = [
     ['harga', 'Harga jual', 'jt'], ['kons', 'Konstruksi', 'jt'], ['tamb', 'Tambahan konstruksi', 'jt'],
