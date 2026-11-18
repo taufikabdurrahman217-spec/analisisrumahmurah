@@ -51,8 +51,8 @@
     ['Carport & taman', 'Muat 1 mobil, taman depan']
   ];
   const OPS = [
-    { desc: 'Rp 215 Juta · Dapur belakang', img: 'img/denah.webp', pins: [[32,15],[17,28],[15,48],[76,20],[75,40],[45,82]], rooms: ROOMS },
-    { desc: 'Rp 250 Juta · Dapur belakang, ruang tamu luar, dan tambahan kanopi ruang tamu', img: 'img/denah-opsi2.webp', pins: [[25,11],[17,28],[24,49],[76,23],[75,47],[75,78],[16,83]],
+    { desc: 'Rp 215 Juta · Dapur belakang · Dinding dalam kalsiboard', img: 'img/denah.webp', pins: [[32,15],[17,28],[15,48],[76,20],[75,40],[45,82]], rooms: ROOMS },
+    { desc: 'Rp 250 Juta · Dapur belakang, ruang tamu luar, dan tambahan kanopi ruang tamu · Dinding dalam plester aci dan cat', img: 'img/denah-opsi2.webp', pins: [[25,11],[17,28],[24,49],[76,23],[75,47],[75,78],[16,83]],
       rooms: [...ROOMS.slice(0,5), ['Carport', 'Muat 1 mobil'], ['Ruang tamu luar & kanopi', 'Area duduk bernaungan kanopi, dinding roster di sisi depan']] }
   ];
   const plan = $('#plan'), pimg = $('#plan-img'), ul = $('#rooms');
