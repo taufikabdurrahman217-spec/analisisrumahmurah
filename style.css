@@ -143,9 +143,23 @@ em{font-style:normal}
 footer{background:#082d2f;color:#8fb0ad;display:flex;align-items:center;justify-content:center;gap:14px;padding:26px}
 footer img{height:38px}
 
+.burger{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;align-items:center;justify-content:center;position:relative}
+.burger i,.burger::before,.burger::after{content:"";position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:#fff;transition:transform .3s,opacity .3s}
+.burger::before{top:15px}.burger i{top:21px}.burger::after{top:27px}
+.nav.open .burger::before{transform:translateY(6px) rotate(45deg)}
+.nav.open .burger i{opacity:0}
+.nav.open .burger::after{transform:translateY(-6px) rotate(-45deg)}
+
 /* RESPONSIVE */
 @media(max-width:900px){
-  .nav nav{display:none}
+  .nav nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px clamp(20px,5vw,64px) 18px;background:rgba(11,59,62,.97);backdrop-filter:blur(14px);font-size:1.05rem}
+  .nav.open nav{display:flex}
+  .nav.open{background:rgba(11,59,62,.97)}
+  .nav nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav nav a::after{display:none}
+  .brand{margin-right:auto}
+  .nav .btn-sm{margin-right:12px}
+  .burger{display:flex}
   .hero,.denah-wrap,.kitchen,.money{grid-template-columns:1fr}
   .stage{height:520px;order:-1;margin-top:20px}
   .trio,.specs{grid-template-columns:1fr 1fr}

@@ -10,6 +10,15 @@
     if (!calm && scrollY < innerHeight) hero.style.setProperty('--sy', `${scrollY * -0.08}px`);
   }, { passive: true });
 
+
+  /* Menu HP */
+  const burger = $('#burger');
+  burger.addEventListener('click', () => {
+    const o = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', o);
+  });
+  $$('.nav nav a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
   /* Hero bergerak mengikuti kursor */
   if (!calm) {
     hero.addEventListener('mousemove', e => {

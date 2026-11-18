@@ -5,6 +5,15 @@
   const nav = $('#nav');
   addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
 
+
+  /* Menu HP */
+  const burger = $('#burger');
+  burger.addEventListener('click', () => {
+    const o = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', o);
+  });
+  $$('.nav nav a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
   /* Angka utama bergerak saat terlihat */
   const run = el => {
     const to = +el.dataset.to, dec = +(el.dataset.dec || 0), pre = el.dataset.pre || '', suf = el.dataset.suf || '';
