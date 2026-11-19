@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rumah Murah Tipe 30/60 | Skyland Property Nusantara</title>
-<meta name="description" content="Rumah Murah Tipe 30/60 dengan dapur sendiri. Opsi 1 Rp 215 juta (dinding dalam kalsiboard) dan Opsi 2 Rp 250 juta (dinding dalam plester aci dan cat), 2 kamar tidur, carport, dan taman.">
+<meta name="description" content="Rumah Murah Tipe 30/60 dengan dapur sendiri. Opsi 1 Rp 215 juta dan Opsi 2 Rp 250 juta, 2 kamar tidur, carport, dan taman.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 
 <header class="nav" id="nav">
   <a href="#atas" class="brand"><img src="img/logo.webp" alt="Skyland Property Nusantara"></a>
-  <nav>
+  <nav id="navlinks">
     <a href="#beda">Pilihan denah</a>
     <a href="#denah">Denah</a>
     <a href="#simulator">Simulator</a>
@@ -23,7 +23,8 @@
     <a href="#spesifikasi">Spesifikasi</a>
     <a href="analisa.html">Analisis</a>
   </nav>
-  <button class="burger" id="burger" aria-label="Buka menu" aria-expanded="false"><i></i></button>
+  <a href="#kontak" class="btn btn-sm">Hubungi kami</a>
+  <button class="menu" id="menu" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="navlinks"><span></span></button>
 </header>
 
 <main id="atas">
@@ -39,13 +40,12 @@
       <a href="#denah" class="link">Lihat denah</a>
     </div>
   </div>
-  <div class="stage">
-    <div class="layer l1"><div class="arch"><img src="img/rumah.webp" alt="Contoh tampak depan rumah" id="heroImg"></div></div>
-    <div class="layer l2">
-      <figure class="plan-card"><span class="olab">Opsi 1</span><img src="img/denah.webp" alt="Denah Opsi 1, dapur belakang"><figcaption><b>Rp 215 Juta</b>Dapur belakang</figcaption></figure>
-      <figure class="plan-card"><span class="olab hi">Opsi 2</span><div class="imgw"><img src="img/denah-opsi2.webp" alt="Denah Opsi 2 dengan ruang tamu luar dan kanopi"><span class="note">Ruang tamu luar + kanopi</span></div><figcaption><b>Rp 250 Juta</b>Dapur belakang, ruang tamu luar, dan tambahan kanopi ruang tamu</figcaption></figure>
-    </div>
-    <div class="layer l4"><div class="chip">Tambahan Opsi 2<br><b>Ruang tamu luar + kanopi</b></div></div>
+  <div class="stage3d">
+    <figure class="v3"><div class="cv" data-o="1" tabindex="0" role="img" aria-label="Model 3D Opsi 1, geser untuk memutar"></div>
+      <figcaption><span class="olab3">Opsi 1</span><b>Rp 215 Juta</b><small>Dapur belakang</small></figcaption></figure>
+    <figure class="v3"><div class="cv" data-o="2" tabindex="0" role="img" aria-label="Model 3D Opsi 2 dengan kanopi dan pagar, geser untuk memutar"></div>
+      <figcaption><span class="olab3 hi">Opsi 2</span><b>Rp 250 Juta</b><small>Dengan kanopi dan pagar</small></figcaption></figure>
+    <p class="hint3">Geser model untuk memutar 360°</p>
   </div>
 </section>
 
@@ -117,7 +117,6 @@
       <ul class="checks">
         <li>Ruang dapur tersendiri ±6 m²</li>
         <li>Layout dapur lengkap</li>
-        <li>Dinding bagian dalam kalsiboard</li>
         <li>Rumah lebih fungsional untuk keluarga</li>
         <li>Lebih menarik saat dijual atau disewakan</li>
       </ul>
@@ -129,7 +128,6 @@
         <li>Semua yang ada di Opsi 1</li>
         <li>Ruang tamu luar di bagian depan</li>
         <li>Kanopi ruang tamu dengan dinding roster</li>
-        <li>Dinding bagian dalam sudah plester aci dan cat</li>
         <li>Lebih lapang untuk menerima tamu</li>
       </ul>
     </div>
@@ -159,7 +157,6 @@
         <div><b>1</b>Carport mobil</div>
         <div><b>60 m²</b>Luas tanah</div>
         <div><b>30+ m²</b>Luas bangunan</div>
-        <div class="hl wide"><b>Kalsiboard</b>Dinding bagian dalam</div>
       </div>
     </div>
     <div class="spec-col">
@@ -172,7 +169,6 @@
         <div><b>60 m²</b>Luas tanah</div>
         <div><b>30+ m²</b>Luas bangunan</div>
         <div class="hl wide"><b>1</b>Ruang tamu luar dengan kanopi (tambahan)</div>
-        <div class="hl wide"><b>Plester aci + cat</b>Dinding bagian dalam sudah finishing</div>
       </div>
     </div>
   </div>
@@ -189,6 +185,8 @@
 </main>
 
 <footer><img src="img/logo.webp" alt=""><span>Skyland Property Nusantara</span></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="house3d.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

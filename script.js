@@ -10,14 +10,14 @@
     if (!calm && scrollY < innerHeight) hero.style.setProperty('--sy', `${scrollY * -0.08}px`);
   }, { passive: true });
 
-
   /* Menu HP */
-  const burger = $('#burger');
-  burger.addEventListener('click', () => {
-    const o = nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded', o);
-  });
-  $$('.nav nav a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+  const menu = $('#menu');
+  if (menu) {
+    const setMenu = o => { nav.classList.toggle('open', o); menu.setAttribute('aria-expanded', o); menu.setAttribute('aria-label', o ? 'Tutup menu' : 'Buka menu'); };
+    menu.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    $$('#navlinks a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    addEventListener('resize', () => { if (innerWidth > 900) setMenu(false); });
+  }
 
   /* Hero bergerak mengikuti kursor */
   if (!calm) {
@@ -60,8 +60,8 @@
     ['Carport & taman', 'Muat 1 mobil, taman depan']
   ];
   const OPS = [
-    { desc: 'Rp 215 Juta · Dapur belakang · Dinding dalam kalsiboard', img: 'img/denah.webp', pins: [[32,15],[17,28],[15,48],[76,20],[75,40],[45,82]], rooms: ROOMS },
-    { desc: 'Rp 250 Juta · Dapur belakang, ruang tamu luar, dan tambahan kanopi ruang tamu · Dinding dalam plester aci dan cat', img: 'img/denah-opsi2.webp', pins: [[25,11],[17,28],[24,49],[76,23],[75,47],[75,78],[16,83]],
+    { desc: 'Rp 215 Juta · Dapur belakang', img: 'img/denah.webp', pins: [[32,15],[17,28],[15,48],[76,20],[75,40],[45,82]], rooms: ROOMS },
+    { desc: 'Rp 250 Juta · Dapur belakang, ruang tamu luar, dan tambahan kanopi ruang tamu', img: 'img/denah-opsi2.webp', pins: [[25,11],[17,28],[24,49],[76,23],[75,47],[75,78],[16,83]],
       rooms: [...ROOMS.slice(0,5), ['Carport', 'Muat 1 mobil'], ['Ruang tamu luar & kanopi', 'Area duduk bernaungan kanopi, dinding roster di sisi depan']] }
   ];
   const plan = $('#plan'), pimg = $('#plan-img'), ul = $('#rooms');
@@ -98,9 +98,9 @@
   /* Simulator keuangan: Opsi 1 (kiri) dan Opsi 2 (kanan), rumus mengikuti Excel Pengeluaran Akad */
   const SIM = [
     { c: 'a', title: 'Opsi 1 · Dapur belakang', tag: 'Data real',
-      v: { harga: 215, kons: 69, tamb: 10.8825, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 40 } },
+      v: { harga: 215, kons: 57, tamb: 10.8825, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 1 } },
     { c: 'b', title: 'Opsi 2 · Dapur belakang, ruang tamu luar & kanopi', tag: 'Estimasi kelayakan',
-      v: { harga: 250, kons: 80, tamb: 23, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 40 } }
+      v: { harga: 250, kons: 57, tamb: 25, fee: 4.719, npop: 80, bphtb: 5, pph: 2.5, bn: 2.5, peneb: 83, unit: 1 } }
   ];
   const FLD = [
     ['harga', 'Harga jual', 'jt'], ['kons', 'Konstruksi', 'jt'], ['tamb', 'Tambahan konstruksi', 'jt'],

@@ -5,14 +5,14 @@
   const nav = $('#nav');
   addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 40), { passive: true });
 
-
   /* Menu HP */
-  const burger = $('#burger');
-  burger.addEventListener('click', () => {
-    const o = nav.classList.toggle('open');
-    burger.setAttribute('aria-expanded', o);
-  });
-  $$('.nav nav a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+  const menu = $('#menu');
+  if (menu) {
+    const setMenu = o => { nav.classList.toggle('open', o); menu.setAttribute('aria-expanded', o); menu.setAttribute('aria-label', o ? 'Tutup menu' : 'Buka menu'); };
+    menu.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+    $$('#navlinks a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    addEventListener('resize', () => { if (innerWidth > 900) setMenu(false); });
+  }
 
   /* Angka utama bergerak saat terlihat */
   const run = el => {

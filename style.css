@@ -143,23 +143,9 @@ em{font-style:normal}
 footer{background:#082d2f;color:#8fb0ad;display:flex;align-items:center;justify-content:center;gap:14px;padding:26px}
 footer img{height:38px}
 
-.burger{display:none;width:44px;height:44px;border:0;background:transparent;cursor:pointer;align-items:center;justify-content:center;position:relative}
-.burger i,.burger::before,.burger::after{content:"";position:absolute;left:11px;right:11px;height:2px;border-radius:2px;background:#fff;transition:transform .3s,opacity .3s}
-.burger::before{top:15px}.burger i{top:21px}.burger::after{top:27px}
-.nav.open .burger::before{transform:translateY(6px) rotate(45deg)}
-.nav.open .burger i{opacity:0}
-.nav.open .burger::after{transform:translateY(-6px) rotate(-45deg)}
-
 /* RESPONSIVE */
 @media(max-width:900px){
-  .nav nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:8px clamp(20px,5vw,64px) 18px;background:rgba(11,59,62,.97);backdrop-filter:blur(14px);font-size:1.05rem}
-  .nav.open nav{display:flex}
-  .nav.open{background:rgba(11,59,62,.97)}
-  .nav nav a{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.08)}
-  .nav nav a::after{display:none}
-  .brand{margin-right:auto}
-  .nav .btn-sm{margin-right:12px}
-  .burger{display:flex}
+  .nav nav{display:none}
   .hero,.denah-wrap,.kitchen,.money{grid-template-columns:1fr}
   .stage{height:520px;order:-1;margin-top:20px}
   .trio,.specs{grid-template-columns:1fr 1fr}
@@ -302,3 +288,151 @@ ul.cl{list-style:disc}
 .srcl a{color:var(--teal);text-decoration:underline;text-underline-offset:3px}
 .hint2{margin-top:22px;font-size:.84rem;color:var(--mut);max-width:80ch}
 @media(max-width:900px){.swot,.concl{grid-template-columns:1fr}.srcl{columns:1}}
+
+/* Model 3D di hero */
+.stage3d{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;align-self:center}
+.v3{margin:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:26px;overflow:hidden}
+.cv{height:min(56vh,500px);cursor:grab;touch-action:pan-y;outline-offset:-3px}
+.cv.grab{cursor:grabbing}
+.cv canvas{display:block;width:100%;height:100%}
+.v3 figcaption{padding:4px 20px 18px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.v3 figcaption b{font:700 1.5rem var(--serif);color:var(--orange)}
+.v3 figcaption small{color:#cfe2df;flex-basis:100%}
+.olab3{background:var(--teal2);color:#fff;font:700 .78rem var(--sans);padding:4px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.3)}
+.olab3.hi{background:var(--orange);color:#1a1205;border-color:var(--orange)}
+.hint3{grid-column:1/-1;text-align:center;color:#cfe2df;font-size:.85rem}
+.hero{grid-template-columns:.7fr 1.3fr}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.cv{height:380px}}
+@media(max-width:560px){.stage3d{grid-template-columns:1fr}.cv{height:300px}}
+
+/* =====================================================
+   TAMPILAN HP / TABLET KECIL
+   ===================================================== */
+html{-webkit-text-size-adjust:100%}
+.data{grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr))}
+.menu{display:none}
+#range{touch-action:pan-y}
+@media(hover:none){
+  .sw:hover,.dc:hover{transform:none;box-shadow:none}
+  .trio article:hover{transform:none;background:var(--mint)}
+  .btn:hover{transform:none;box-shadow:none}
+}
+
+/* Navigasi: tombol hamburger */
+@media(max-width:900px){
+  .menu{display:grid;place-items:center;flex:none;width:44px;height:44px;margin-left:10px;border:0;border-radius:12px;background:rgba(255,255,255,.14);cursor:pointer}
+  .menu span,.menu span::before,.menu span::after{display:block;width:20px;height:2px;border-radius:2px;background:#fff;transition:.3s}
+  .menu span{position:relative}
+  .menu span::before,.menu span::after{content:"";position:absolute;left:0}
+  .menu span::before{top:-6px}.menu span::after{top:6px}
+  .nav.open .menu span{background:transparent}
+  .nav.open .menu span::before{top:0;transform:rotate(45deg)}
+  .nav.open .menu span::after{top:0;transform:rotate(-45deg)}
+  .nav .btn-sm{margin-left:auto}
+  .nav.open{background:var(--teal)}
+  .nav nav{display:flex;flex-direction:column;gap:0;position:absolute;top:100%;left:0;right:0;padding:4px clamp(20px,5vw,64px) 14px;background:var(--teal);box-shadow:0 26px 40px -20px rgba(0,0,0,.6);opacity:0;visibility:hidden;transform:translateY(-8px);transition:.25s}
+  .nav.open nav{opacity:1;visibility:visible;transform:none}
+  .nav nav a{padding:14px 0;font-size:1.05rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav nav a:last-child{border-bottom:0}
+  .nav nav a::after{display:none}
+}
+
+@media(max-width:700px){
+  .brand img{height:42px}
+  .btn-sm{padding:9px 16px;font-size:.85rem}
+  .sec{padding:60px 20px}
+  h2{max-width:none}
+
+  /* Hero */
+  .hero{min-height:0;padding:96px 20px 48px;gap:26px}
+  .hero h1{font-size:clamp(2.3rem,10.5vw,3rem)}
+  .tag{margin-bottom:16px;font-size:.95rem}
+  .lead{font-size:1.05rem;margin:18px 0 24px}
+  .hero-cta{gap:10px 12px}
+  .hero-cta .price{font-size:.95rem;padding:10px 18px}
+  .v3{border-radius:22px}
+  .v3 figcaption{padding:2px 16px 14px}
+  .v3 figcaption b{font-size:1.3rem}
+
+  /* Perbandingan denah */
+  .compare{height:500px;border-radius:20px;margin-top:28px}
+  .cap{top:10px;max-width:46%}
+  .cap small{font-size:.8rem}
+  .cap b{font-size:1.05rem;margin:2px 0}
+  .pane img{top:68px;height:calc(100% - 80px)}
+  .handle i{width:44px;height:44px}
+  .handle i::before{left:11px}.handle i::after{right:11px}
+
+  /* Denah interaktif */
+  .denah-wrap{gap:26px}
+  .plan{width:100%;max-width:340px;padding:10px;border-radius:18px}
+  .pin{width:32px;height:32px;margin:-16px 0 0 -16px;font-size:.9rem;border-width:2px}
+  .switch button{padding:9px 20px}
+  .rooms ul{margin-top:18px}
+  .rooms li{padding:11px 12px;gap:14px}
+  .rooms li.on{transform:none}
+  .rooms li>i{width:36px;height:36px}
+  .rooms li b{font-size:1.05rem}
+  .rooms li span{font-size:.9rem}
+
+  /* Simulator */
+  #simulator.sec{padding:40px 10px}
+  .simcard{padding:18px 12px;border-radius:22px}
+  .simcard h2 small{display:block;margin-top:4px}
+  .subd{font-size:.88rem}
+  .simgrid{gap:14px}
+  .sc{padding:16px 12px}
+  .sc h3{flex-wrap:wrap}
+  .fields{gap:10px 8px}
+  .fields label{font-size:.78rem;align-content:end}
+  .fields input{font-size:16px;padding:10px 34px 10px 10px}
+  .fields .u{right:9px;font-size:.7rem}
+  .res{font-size:.84rem}
+  .res tr.k td{font-size:1.1rem}
+  .simdiff{font-size:.88rem;padding:12px 14px}
+
+  /* Dapur */
+  .kitchen{margin-top:28px;gap:26px}
+  .tilt{border-radius:20px}
+  .badge{left:12px;bottom:12px;padding:8px 16px;font-size:.9rem}
+  .feats{gap:20px}
+
+  /* Harga, gaya hidup, spesifikasi */
+  .money.prices{margin-top:30px;gap:36px}
+  .trio{margin-top:28px;gap:14px}
+  .trio article{padding:26px 22px}
+  .trio h3{font-size:1.4rem}
+  .specpair{margin-top:30px;gap:34px}
+  .cta{padding:70px 20px}
+  .cta .btn{width:100%;max-width:340px}
+
+  /* Halaman analisis */
+  .ahero{padding:100px 20px 40px}
+  .ahero h1{font-size:clamp(1.9rem,8vw,2.6rem)}
+  .figs{grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+  .fig{padding:12px}
+  .fig b{font-size:1.4rem}
+  .fig span{font-size:.74rem}
+  .swot{gap:14px;margin-top:22px}
+  .sw,.dc{padding:18px 16px;border-radius:16px}
+  .sw h3{font-size:1.2rem}
+  .sw ul,.dc ul{font-size:.9rem}
+  .data{gap:14px}
+  .srcl{font-size:.8rem;overflow-wrap:anywhere}
+}
+
+@media(max-width:560px){
+  .cv{height:320px}
+  .spec-col .specs{grid-template-columns:1fr 1fr;gap:10px}
+  .spec-col .specs div{padding:16px;font-size:.88rem;border-radius:18px}
+  .spec-col .specs b{font-size:1.7rem}
+  .spec-col h3{font-size:1.25rem}
+}
+
+@media(max-width:380px){
+  .brand img{height:36px}
+  .btn-sm{padding:8px 12px;font-size:.8rem}
+  .menu{width:40px;height:40px;margin-left:8px}
+  .pricebig{font-size:3rem}
+  .fields input{padding-right:30px}
+}
